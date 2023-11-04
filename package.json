@@ -18,7 +18,6 @@
     "build:electron:win": "",
     "build:electron:linux": "",
     "build:electron:mac": "",
-
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "peeratchai kleebbua",

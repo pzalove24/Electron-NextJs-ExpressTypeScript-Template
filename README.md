@@ -65,3 +65,38 @@ app.listen(PORT, () => {
 1. go to the root directory
 2. npm init
 3. npm install --save-dev concurrently electron electron-builder wait-on
+
+script for package.json in server
+```
+"recreate-dist": "rmdir /S /Q dist && start /b tsc -w ",
+"dev": "start /b tsc -w & nodemon dist/app.js",
+"start": "tsc && node dist/app.js",
+"test": "echo \"Error: no test specified\" && exit 1"
+```
+
+script for package.json in client
+```
+"dev": "next dev",
+"build": "next build",
+"start": "next lint && next start",
+"lint": "next lint"
+```
+
+script for package.json in root directory
+```
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "dev:web": "concurrently \"cd client && npm run dev\" \"wait-on http://localhost:3000 && cd server && npm run dev \"",
+    "dev:web:server" : "cd server && npm run dev",
+    "dev:web:client" : "cd client && npm run dev",
+    "build:web": "cd server && tsc && cd .. && npm run build:web:client",
+    "build:web:server": "cd server && npm run start",
+    "build:web:client": "cd client && npm run build",
+    "dev:electron": "",
+    "dev:electron:server": "",
+    "dev:electron:client": "",
+    "build:electron:all": "",
+    "build:electron:win": "",
+    "build:electron:linux": "",
+    "build:electron:mac": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+```
