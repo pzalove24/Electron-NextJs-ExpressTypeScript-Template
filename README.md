@@ -1,8 +1,15 @@
-### SetUp client using NextJs
+# Electron NextJs ExpressTypeScipt
+
+this project is the attempt to create a template for full-stack software development in both web and desktop application
+
+NextJs as the frontend
+ExpressTypeScript as the backend
+
+## SetUp client using NextJs
 
 1. npx create-next-app@latest client
 
-### SetUp server using Express with Typescript
+## SetUp server using Express with Typescript
 
 1. create server folder
 2. cd server and npm init -y
@@ -53,3 +60,8 @@ app.listen(PORT, () => {
 14. add script in package.json
 - "dev": "start /b tsc -w & nodemon dist/app.js" //Window10
 - "dev": "tsc -w & nodemon dist/app.js", //Non-Window10
+
+## SetUp electron and electron-builder
+1. go to the root directory
+2. npm init
+3. npm install --save-dev concurrently electron electron-builder wait-on
