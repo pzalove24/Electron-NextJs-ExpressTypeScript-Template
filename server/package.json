@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "recreate-dist": "rmdir /S /Q dist && start /b tsc -w ",
     "dev": "start /b tsc -w & nodemon dist/app.js",
+    "start": "tsc && node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

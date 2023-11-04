@@ -1,7 +1,20 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from "next/image";
+import styles from "./page.module.css";
 
-export default function Home() {
+// async function getData() {
+//   const res = await fetch('http://localhost:3001/')
+
+//   if (!res.ok) {
+//     // This will activate the closest `error.js` Error Boundary
+//     throw new Error('Failed to fetch data')
+//   }
+
+//   return res.json()
+// }
+
+export default async function Home() {
+  // const data = await getData()
+  // console.log(data)
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -15,7 +28,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -91,5 +104,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }

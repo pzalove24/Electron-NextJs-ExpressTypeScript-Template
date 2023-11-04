@@ -15,7 +15,7 @@ app.use(cors());
 
 // ROUTES
 app.get("/", (req, res) => {
-  res.send("HelloWorld");
+  res.status(200).json({ data: "hello World" });
 });
 
 // SERVER CONNECTION
