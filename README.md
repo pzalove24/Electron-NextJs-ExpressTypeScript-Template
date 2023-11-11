@@ -84,19 +84,44 @@ script for package.json in client
 
 script for package.json in root directory
 ```
-    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
-    "dev:web": "concurrently \"cd client && npm run dev\" \"wait-on http://localhost:3000 && cd server && npm run dev \"",
-    "dev:web:server" : "cd server && npm run dev",
-    "dev:web:client" : "cd client && npm run dev",
-    "build:web": "cd server && tsc && cd .. && npm run build:web:client",
-    "build:web:server": "cd server && npm run start",
-    "build:web:client": "cd client && npm run build",
-    "dev:electron": "",
-    "dev:electron:server": "",
-    "dev:electron:client": "",
-    "build:electron:all": "",
-    "build:electron:win": "",
-    "build:electron:linux": "",
-    "build:electron:mac": "",
-    "test": "echo \"Error: no test specified\" && exit 1"
+{
+  "name": "memristor_evaluating_webapp",
+  "version": "1.0.0",
+  "description": "webapp_prototype_for_board",
+  "main": "./dist/src/app.js",
+  "scripts": {
+    "start:ts": "ts-node src/app.ts",
+    "start": "tsc && node dist/app.js",
+    "dev": "start /b tsc -w & nodemon dist/src/app.js",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate:dev": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "prisma:generate": "prisma generate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.5.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0",
+    "serialport": "^12.0.0",
+    "socket.io": "^4.4.1"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.20",
+    "@types/morgan": "^1.9.7",
+    "nodemon": "^3.0.1",
+    "prisma": "^5.5.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
 ```
